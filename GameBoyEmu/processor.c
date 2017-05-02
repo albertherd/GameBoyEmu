@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "processor.h"
+#include "cartridge.h"
 
 void SetSixteenBitVal(SixteenBitReg reg, const unsigned short value)
 {

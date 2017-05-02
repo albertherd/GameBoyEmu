@@ -45,6 +45,9 @@
     <ClInclude Include="processor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="romheader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.c">
@@ -63,6 +66,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="processor.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="romheader.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
