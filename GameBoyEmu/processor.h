@@ -10,7 +10,7 @@
 
 typedef struct EightBitReg
 {
-	unsigned char Val
+	unsigned char Val;
 } EightBitReg;
 
 typedef struct SixteenBitReg

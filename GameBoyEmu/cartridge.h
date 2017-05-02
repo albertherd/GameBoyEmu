@@ -46,6 +46,7 @@ typedef struct RomMetadata {
 } RomMetadata;
 
 RomMetadata romMetadata;
+char* cartridge;
 
 BOOL InsertCartridge(LPCWSTR filePath);
 BOOL LoadCartridge(LPCWSTR filePath);
