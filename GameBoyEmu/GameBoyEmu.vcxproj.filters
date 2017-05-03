@@ -48,7 +48,10 @@
     <ClInclude Include="romheader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="bootrom.h">
+    <ClInclude Include="gameboydmg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="instructions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -72,6 +75,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="romheader.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gameboydmg.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -5,8 +5,8 @@
 //http://www.chrisantonellis.com/files/gameboy/gb-programming-manual.pdf
 
 //Memory Size
-#define RomBank0Length 0x4000
-#define RomBankNLength 0x4000
+#define ROMBank0Length 0x4000
+#define ROMBankNLength 0x4000
 #define VRAMLength 0x2000
 #define ExternalRAMLength 0x2000
 #define InternalRAM0Length 0x1000
@@ -18,16 +18,12 @@
 #define HighRAMLength 0x0127
 #define InterruptEnableFlagRAM 0x001
 
-
 //Memory Locations
-#define RestartInterruptVectorStart 0x0000
-#define RestartInterruptVectorEnd 0x00FF
+#define ROMBank0Start 0x0000
+#define ROMBank0End 0x3FFF
 
-#define CartridgeHeaderAreaStart 0x0100
-#define CartridgeHeaderAreaEnd 0x014f
-
-#define CartridgeROMBank0Start 0x0150
-#define CartridgeROMBank0End 0x3FFF
+#define ROMBankNStart 0x4000
+#define ROMBankNEnd 0x7FFF
 
 #define CartridgeROMSwitchableBankStart 0x4000
 #define CartridgeROMSwitchableBankEnd 0x7FFF
@@ -83,8 +79,8 @@
 
 #define SGBSupportsSGB 0x3
 
-unsigned char ROMBank0[RomBank0Length];
-unsigned char ROMBankN[RomBankNLength];
+unsigned char ROMBank0[ROMBank0Length];
+unsigned char ROMBankN[ROMBankNLength];
 unsigned char VRAM[VRAMLength];
 unsigned char ExternalRAM[ExternalRAMLength];
 unsigned char InternalRAM0[InternalRAM0Length];
@@ -92,15 +88,4 @@ unsigned char InternalRAMN[InternalRAMNLength];
 unsigned char OAM[OAMLength];
 unsigned char HighRAM[HighRAMLength];
 
-enum MBCTypes {
-	MBC_SIMPLE,
-	MBC_MBC1,
-	MBC_MMM01,
-	MBC_MBC2,
-	MBC_MBC3,
-	MBC_MBC4,
-	MBC_MBC5,
-	MBC_MBC6,
-	MBC_MBC7,
-	MBC_UNKNOWN
-};
+unsigned char MemoryGetChar(unsigned short address);

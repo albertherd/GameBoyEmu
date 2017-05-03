@@ -1,15 +1,46 @@
 #include "stdafx.h"
 #include "processor.h"
-#include "cartridge.h"
-#include "bootrom.h"
 #include "memory.h"
+#include "instructions.h"
 
-void SetSixteenBitVal(SixteenBitReg reg, const unsigned short value)
+inline void IncrementPc()
 {
-	reg.Val = value;
+	processor.PC.SixteenBitValue++;
 }
 
-void SetEightBitVal(SixteenBitReg reg, const unsigned char value)
+void ProcessorExecute()
 {
-	reg.Low.Val = value;
+	while (1)
+	{
+		Instruction instruction = instructions[MemoryGetChar(processor.PC.SixteenBitValue)];
+		IncrementPc();
+
+		if(instruction.InstructionType == InstructionLoad)
+		{
+			ParseLoadInstruction(&instruction);
+		}
+		else if (instruction.InstructionType == InstructionXOR)
+		{
+			ParseXORInstruction(&instruction);
+		}
+	}
+}
+
+void ParseLoadInstruction(Instruction* instruction)
+{
+	if (instruction->AddendType == AddendType16BitData) 
+	{
+		instruction->Augend.SixteenBitReg->EightBitLowReg.EightBitValue = MemoryGetChar(processor.PC.SixteenBitValue);
+		IncrementPc();
+		instruction->Augend.SixteenBitReg->EightBitHighReg.EightBitValue = MemoryGetChar(processor.PC.SixteenBitValue);
+		IncrementPc();
+	}
+
+	processor.Cycles += instruction->Cycles;
+}
+
+void ParseXORInstruction(Instruction* instruction)
+{
+	processor.AF.EightBitHighReg.EightBitValue = processor.AF.EightBitHighReg.EightBitValue ^ instruction->Augend.EightBitReg->EightBitValue;
+	processor.Cycles += instruction->Cycles;
 }

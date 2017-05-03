@@ -8,10 +8,8 @@
 #define DEDefaultValue 0x00D8
 #define HLDefaultValue 0x014D
 
-
-typedef struct EightBitReg
-{
-	unsigned char Val;
+typedef struct EightBitReg {
+	unsigned char EightBitValue;
 } EightBitReg;
 
 typedef struct SixteenBitReg
@@ -19,12 +17,12 @@ typedef struct SixteenBitReg
 	union
 	{
 		struct {
-			EightBitReg High;
-			EightBitReg Low;
+			EightBitReg EightBitHighReg;
+			EightBitReg EightBitLowReg;
 		};
-		unsigned short Val;
+		unsigned short SixteenBitValue;
 	};
-}SixteenBitReg;
+} SixteenBitReg;
 
 typedef struct Processor
 {
@@ -34,6 +32,12 @@ typedef struct Processor
 	SixteenBitReg HL;
 	SixteenBitReg SP;
 	SixteenBitReg PC;
+	EightBitReg Flags;
+	size_t Cycles;
 } Processor;
 
 Processor processor;
+
+void ProcessorExecute();
+void ParseLoadInstruction(Instruction* instruction);
+void ParseXORInstruction(Instruction* instruction);

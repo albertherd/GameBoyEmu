@@ -146,12 +146,13 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="bootrom.h" />
     <ClInclude Include="cartridge.h" />
     <ClInclude Include="defs.h" />
+    <ClInclude Include="gameboydmg.h" />
     <ClInclude Include="log.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="memory.h" />
+    <ClInclude Include="instructions.h" />
     <ClInclude Include="processor.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="romheader.h" />
@@ -160,6 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cartridge.c" />
+    <ClCompile Include="gameboydmg.c" />
     <ClCompile Include="log.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="memory.c" />
