@@ -1,7 +1,5 @@
 #pragma once
 
-#include "processor.h"
-
 #define ZeroFlagMask 0x80
 #define SubtractFlagMask 0x40
 #define HalfCarryFlagMask 0x20

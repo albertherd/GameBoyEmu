@@ -107,19 +107,17 @@ BOOL ValidateCartridgeHeader()
 //Not really sure how to distinguish between the 15 and the 11 ones.
 //So assume either 16 or 11, worst case we'll truncate part of the title
 //Anyhow, the buffer passed here should always be 17 (max 16 + null terminator)
-BOOL ROMHeaderGetROMTitle(char* buffer, char length) 
+BOOL ROMHeaderGetROMTitle(char* buffer, char length)
 {
 	if (length < ROMHeaderTitleLength)
 		return FALSE;
 
-	if (!IsCGBOnly() || !SupportsCGBFunctions()) 
+	if (!IsCGBOnly() || !SupportsCGBFunctions())
 	{
 		strcpy_s(buffer, ROMHeaderTitleSizeNoCGBFlagLength, ROMBank0[TitleOffset]);
 	}
-	else 
+	else
 	{
 		strcpy_s(buffer, ROMHeaderTitleSizeCGBFlagLength, ROMBank0[TitleOffset]);
 	}
-
-	return TRUE;
 }
