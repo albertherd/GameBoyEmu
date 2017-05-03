@@ -48,6 +48,9 @@
     <ClInclude Include="romheader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="bootrom.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.c">

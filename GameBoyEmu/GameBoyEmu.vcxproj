@@ -146,6 +146,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bootrom.h" />
     <ClInclude Include="cartridge.h" />
     <ClInclude Include="defs.h" />
     <ClInclude Include="log.h" />

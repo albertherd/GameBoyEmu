@@ -8,6 +8,7 @@
 #define DEDefaultValue 0x00D8
 #define HLDefaultValue 0x014D
 
+
 typedef struct EightBitReg
 {
 	unsigned char Val;

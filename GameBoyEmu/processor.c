@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "processor.h"
 #include "cartridge.h"
+#include "bootrom.h"
+#include "memory.h"
 
 void SetSixteenBitVal(SixteenBitReg reg, const unsigned short value)
 {
@@ -10,14 +12,4 @@ void SetSixteenBitVal(SixteenBitReg reg, const unsigned short value)
 void SetEightBitVal(SixteenBitReg reg, const unsigned char value)
 {
 	reg.Low.Val = value;
-}
-
-void Reset() 
-{
-	SetSixteenBitVal(processor.AF, AFDefaultValueNoCGB);
-	SetSixteenBitVal(processor.BC, BCDefaultValue);
-	SetSixteenBitVal(processor.DE, DEDefaultValue);
-	SetSixteenBitVal(processor.HL, HLDefaultValue);
-	SetSixteenBitVal(processor.PC, PCDefaultValue);
-	SetSixteenBitVal(processor.SP, SPDefaultValue);
 }

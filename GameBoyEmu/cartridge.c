@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "cartridge.h"
 #include "log.h"
-#include "memory.h"
 #include "math.h"
 
 BOOL InsertCartridge(LPCWSTR filePath)
@@ -26,19 +25,13 @@ BOOL LoadCartridge(LPCWSTR filePath)
 
 	if (!GetFileSizeEx(hROM, &romSize))
 	{
-		return ErrorAndCloseHeaderHandle(hROM, "Could not get file size");
-	}
-
-	if (romSize.LowPart < ROMHeaderSize)
-	{
-		return ErrorAndCloseHeaderHandle(hROM, "File is too small (smaller than header)");
+		return ErrorAndCloseHeaderHandle(hROM, TEXT("Could not get file size"));
 	}
 
 	cartridge = malloc(romSize.LowPart);
-
 	if (!ReadFile(hROM, cartridge, romSize.LowPart, &bytesRead, NULL))
 	{
-		return ErrorAndCloseHeaderHandle(hROM, "Could not load ROM to memory");
+		return ErrorAndCloseHeaderHandle(hROM, TEXT("Could not load ROM to memory"));
 	}
 
 	CloseHandle(hROM);
@@ -53,9 +46,9 @@ void UnloadRom()
 	}
 }
 
-BOOL ErrorAndCloseHeaderHandle(HANDLE hROM, const char* message)
+BOOL ErrorAndCloseHeaderHandle(HANDLE hROM, LPCWSTR message)
 {
-	debugLogError(TEXT("File is too small (smaller than header)"));
+	debugLog(message);
 	CloseHandle(hROM);
 	return FALSE;
 }

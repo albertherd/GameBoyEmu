@@ -102,10 +102,24 @@ BOOL ValidateCartridgeHeader()
 	return memcmp(ROMBank0 + NintendoLogoOffset, nintendoLogo, sizeof(nintendoLogo)) == 0;
 }
 
-char* ROMHeaderGetROMTitle() 
+//May be stupid.
+//The issue is that some titles are 16 chars long, some are 15, some are 11.
+//Not really sure how to distinguish between the 15 and the 11 ones.
+//So assume either 16 or 11, worst case we'll truncate part of the title
+//Anyhow, the buffer passed here should always be 17 (max 16 + null terminator)
+BOOL ROMHeaderGetROMTitle(char* buffer, char length) 
 {
-	int titleLength = strnlen_s(ROMBank0[TitleOffset], 0xF);
-	char* title = malloc(titleLength);
-	strcpy_s(title, titleLength, ROMBank0[TitleOffset]);
-	return title;
+	if (length < ROMHeaderTitleLength)
+		return FALSE;
+
+	if (!IsCGBOnly() || !SupportsCGBFunctions()) 
+	{
+		strcpy_s(buffer, ROMHeaderTitleSizeNoCGBFlagLength, ROMBank0[TitleOffset]);
+	}
+	else 
+	{
+		strcpy_s(buffer, ROMHeaderTitleSizeCGBFlagLength, ROMBank0[TitleOffset]);
+	}
+
+	return TRUE;
 }
