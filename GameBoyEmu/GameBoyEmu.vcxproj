@@ -152,7 +152,6 @@
     <ClInclude Include="log.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="memory.h" />
-    <ClInclude Include="instructions.h" />
     <ClInclude Include="processor.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="romheader.h" />

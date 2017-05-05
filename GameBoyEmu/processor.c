@@ -14,8 +14,12 @@ void ProcessorExecute()
 	{
 		Instruction instruction = instructions[MemoryGetChar(processor.PC.SixteenBitValue)];
 		IncrementPc();
-
-		if(instruction.InstructionType == InstructionLoad)
+		
+		if (instruction.InstructionType == InstructionNOP)
+		{
+			ParseNOPInstruction(&instruction);
+		}
+		else if(instruction.InstructionType == InstructionLoad)
 		{
 			ParseLoadInstruction(&instruction);
 		}
@@ -26,13 +30,24 @@ void ProcessorExecute()
 	}
 }
 
+void TempGetInstruction()
+{
+
+}
+
+
+void ParseNOPInstruction(Instruction* instruction)
+{
+	processor.Cycles += instruction->Cycles;
+}
+
 void ParseLoadInstruction(Instruction* instruction)
 {
 	if (instruction->AddendType == AddendType16BitData) 
 	{
-		instruction->Augend.SixteenBitReg->EightBitLowReg.EightBitValue = MemoryGetChar(processor.PC.SixteenBitValue);
+		instruction->LeftOperand.SixteenBitReg->EightBitLowReg.EightBitValue = MemoryGetChar(processor.PC.SixteenBitValue);
 		IncrementPc();
-		instruction->Augend.SixteenBitReg->EightBitHighReg.EightBitValue = MemoryGetChar(processor.PC.SixteenBitValue);
+		instruction->LeftOperand.SixteenBitReg->EightBitHighReg.EightBitValue = MemoryGetChar(processor.PC.SixteenBitValue);
 		IncrementPc();
 	}
 
