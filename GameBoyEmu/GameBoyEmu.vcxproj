@@ -30,6 +30,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -89,6 +90,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <CompileAs>CompileAsC</CompileAs>
+      <OmitDefaultLibName>false</OmitDefaultLibName>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -149,10 +151,13 @@
     <ClInclude Include="cartridge.h" />
     <ClInclude Include="defs.h" />
     <ClInclude Include="gameboydmg.h" />
+    <ClInclude Include="instructions.h" />
+    <ClInclude Include="instructions_inline.h" />
     <ClInclude Include="log.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="memory.h" />
     <ClInclude Include="processor.h" />
+    <ClInclude Include="registers.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="romheader.h" />
     <ClInclude Include="stdafx.h" />
@@ -161,6 +166,7 @@
   <ItemGroup>
     <ClCompile Include="cartridge.c" />
     <ClCompile Include="gameboydmg.c" />
+    <ClCompile Include="instructions.c" />
     <ClCompile Include="log.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="memory.c" />
@@ -179,6 +185,9 @@
   <ItemGroup>
     <Image Include="GameBoyEmu.ico" />
     <Image Include="small.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

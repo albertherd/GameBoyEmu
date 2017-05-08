@@ -88,4 +88,4 @@ unsigned char InternalRAMN[InternalRAMNLength];
 unsigned char OAM[OAMLength];
 unsigned char HighRAM[HighRAMLength];
 
-unsigned char MemoryGetChar(unsigned short address);
+unsigned char MemoryGet8Bit(unsigned short address);
