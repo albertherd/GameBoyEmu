@@ -23,7 +23,7 @@
 
 typedef struct Processor
 {
-	BOOL isInCbMode;
+	BOOL IsCbMode;
 	EightBitReg Flags;
 	SixteenBitReg AF;
 	SixteenBitReg BC;
