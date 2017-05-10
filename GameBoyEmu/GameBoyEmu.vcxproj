@@ -152,6 +152,7 @@
     <ClInclude Include="defs.h" />
     <ClInclude Include="gameboydmg.h" />
     <ClInclude Include="instructions.h" />
+    <ClInclude Include="instructions_cb.h" />
     <ClInclude Include="instructions_inline.h" />
     <ClInclude Include="log.h" />
     <ClInclude Include="main.h" />
@@ -167,6 +168,7 @@
     <ClCompile Include="cartridge.c" />
     <ClCompile Include="gameboydmg.c" />
     <ClCompile Include="instructions.c" />
+    <ClCompile Include="instructions_cb.c" />
     <ClCompile Include="log.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="memory.c" />

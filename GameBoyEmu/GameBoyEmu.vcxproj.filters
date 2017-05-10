@@ -60,6 +60,9 @@
     <ClInclude Include="instructions_inline.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="instructions_cb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.c">
@@ -87,6 +90,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="instructions.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="instructions_cb.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
