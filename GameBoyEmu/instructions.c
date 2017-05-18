@@ -10,7 +10,7 @@ LD HL,d16
 */
 void Opcode_0x21()
 {
-	InstructionLD16BitMem(&processor.HL);
+	InstructionLD16BitImmediate(&processor.HL);
 }
 
 /*
@@ -20,7 +20,7 @@ LD SP,d16
 */
 void Opcode_0x31()
 {
-	InstructionLD16BitMem(&processor.SP);
+	InstructionLD16BitImmediate(&processor.SP);
 }
 
 
@@ -31,7 +31,7 @@ LD (HL-),A
 */
 void Opcode_0x32()
 {
-	InstructionLD8BitReg(&processor.HL, &processor.AF.EightBitHighReg);
+	InstructionLDFromRegToMemory(&processor.HL, &processor.AF.EightBitHighReg);
 	processor.HL.SixteenBitValue--;
 }
 
@@ -51,4 +51,5 @@ void Opcode_0xAF()
 void Opcode_0xCB()
 {
 	processor.IsCbMode = TRUE;
+	ProcessorAddCycles(4);
 }

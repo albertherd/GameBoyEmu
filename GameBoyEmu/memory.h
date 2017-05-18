@@ -89,3 +89,5 @@ unsigned char OAM[OAMLength];
 unsigned char HighRAM[HighRAMLength];
 
 unsigned char MemoryGet8Bit(unsigned short address);
+void MemoryWrite8Bit(unsigned short address, char value);
+char* GetMemoryAt(unsigned short address);

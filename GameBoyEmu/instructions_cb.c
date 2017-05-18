@@ -11,5 +11,6 @@ Z 0 1 -
 
 void Opcode_CD_0x7c() 
 {
-	
+	TestBit(7, &processor.HL.EightBitHighReg);
+	processor.IsCbMode = FALSE;
 }
